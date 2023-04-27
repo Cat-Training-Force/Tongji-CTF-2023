@@ -1,0 +1,35 @@
+<body>
+    <p>
+        可以使用的非数字符号: \+-*/.~()^
+    </p>
+    <input type="text" id="username" name="username" placeholder="输入就可以计算……">
+    <p id="usernameResult">这里是结果</p>
+</body>
+
+<script>
+    var usernameSelected = document.getElementById('username');
+    var usernameWarning = document.getElementById('usernameResult');
+
+    usernameSelected.addEventListener('keyup', function () {
+        var request = new XMLHttpRequest();
+        var url = "/calc";
+        var json = {'expression': usernameSelected.value};
+        // directly post json
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(JSON.stringify(json))
+
+
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                    var response = JSON.parse(request.response);
+                    if (response.result) {
+                        usernameWarning.innerHTML = response.result;
+                    }
+                }
+            }
+        };
+        request.send(params);
+    });
+</script>
