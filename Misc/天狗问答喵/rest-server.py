@@ -1,6 +1,5 @@
 #!flask/bin/python
 from flask import Flask, Response, jsonify, render_template, request
-from flask_httpauth import HTTPBasicAuth
 from flask_cors import CORS, cross_origin
 from hashlib import sha256
 from time import sleep
@@ -8,20 +7,18 @@ import os
 
 PORT = 17001
 
-SECRET_LOCATION = 'secret.txt'
+SECRET_LOCATION = '/chall/secret.txt'
 
 original_flag = open(SECRET_LOCATION).read().strip()
 print(original_flag)
 
-# import os
-# new_flag = os.environ.get('GZCTF_FLAG', original_flag)
-# print(new_flag)
-# open(SECRET_LOCATION, 'w').write(new_flag)
-
+import os
+new_flag = os.environ.get('GZCTF_FLAG', original_flag)
+print(new_flag)
+open(SECRET_LOCATION, 'w').write(new_flag)
 
 
 app = Flask(__name__, static_url_path="")
-auth = HTTPBasicAuth()
 
 
 def calc_sha256(b):
@@ -36,13 +33,14 @@ def answer():
     sleep(1)
     try:
         data = request.form.to_dict(flat=False)
-        ans_hash = calc_sha256(str(data))
-        print(str(data))
+        s = data['q1'][0] + data['q2'][0] + data['q3'][0] + data['q4'][0] + data['q5'][0] + data['q6'][0]
+        ans_hash = calc_sha256(s)
+        print(s)
         print(ans_hash)
-        assert ans_hash == '87bb1eeadf8f5c40b2b83b8c3f7ff2e92f97eff47c74a563a13a8c774b40a1dc'
+        assert ans_hash == '0579cd1a454f774bab3fc9c840232c7fcfd701e8c610b14fbb4ffdadd6f66a67'
         ret = {
             "status": 0,
-            "msg": original_flag,
+            "msg": new_flag,
         }
         return jsonify(ret)
     except:
