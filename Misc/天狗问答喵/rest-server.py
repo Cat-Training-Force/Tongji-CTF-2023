@@ -33,10 +33,11 @@ def answer():
     sleep(1)
     try:
         data = request.form.to_dict(flat=False)
-        ans_hash = calc_sha256(str(data))
-        print(str(data))
+        s = data['q1'][0] + data['q2'][0] + data['q3'][0] + data['q4'][0] + data['q5'][0] + data['q6'][0]
+        ans_hash = calc_sha256(s)
+        print(s)
         print(ans_hash)
-        assert ans_hash == '87bb1eeadf8f5c40b2b83b8c3f7ff2e92f97eff47c74a563a13a8c774b40a1dc'
+        assert ans_hash == '0579cd1a454f774bab3fc9c840232c7fcfd701e8c610b14fbb4ffdadd6f66a67'
         ret = {
             "status": 0,
             "msg": new_flag,
