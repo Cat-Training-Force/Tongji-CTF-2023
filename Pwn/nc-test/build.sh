@@ -1,0 +1,1 @@
+docker build . -t miaotony/tjctf2023:pwn-nc-test
