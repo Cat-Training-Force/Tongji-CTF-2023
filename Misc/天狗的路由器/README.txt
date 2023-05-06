@@ -5,6 +5,9 @@
 3. 找一台 Mac，使用 `whatchwificat.sh` 来保持对隐藏的 SSID 的连接
 4. 拍摄具有 GPS 信息的照片，作为题目附件
 
+tjctf{Ss1D_1s_1nt3reSt1n9}
+tjctf{7hi5_I$_HIDd#N_Fla6}
+
 【表】
 writeup 要点：
 1. 提到 metadata 中的 GPS 信息

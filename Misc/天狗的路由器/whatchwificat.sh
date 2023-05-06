@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FLAGSSID='tjctf{this_is_hidden_flag}'
+FLAGSSID='tjctf{7hi5_I$_HIDd#N_Fla6}'
 PWD=tac233333.
 
 while [ 1 ]
