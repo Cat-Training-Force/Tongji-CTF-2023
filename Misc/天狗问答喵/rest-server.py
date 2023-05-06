@@ -1,6 +1,5 @@
 #!flask/bin/python
 from flask import Flask, Response, jsonify, render_template, request
-from flask_httpauth import HTTPBasicAuth
 from flask_cors import CORS, cross_origin
 from hashlib import sha256
 from time import sleep
@@ -8,20 +7,18 @@ import os
 
 PORT = 17001
 
-SECRET_LOCATION = 'secret.txt'
+SECRET_LOCATION = '/chall/secret.txt'
 
 original_flag = open(SECRET_LOCATION).read().strip()
 print(original_flag)
 
-# import os
-# new_flag = os.environ.get('GZCTF_FLAG', original_flag)
-# print(new_flag)
-# open(SECRET_LOCATION, 'w').write(new_flag)
-
+import os
+new_flag = os.environ.get('GZCTF_FLAG', original_flag)
+print(new_flag)
+open(SECRET_LOCATION, 'w').write(new_flag)
 
 
 app = Flask(__name__, static_url_path="")
-auth = HTTPBasicAuth()
 
 
 def calc_sha256(b):
@@ -42,7 +39,7 @@ def answer():
         assert ans_hash == '87bb1eeadf8f5c40b2b83b8c3f7ff2e92f97eff47c74a563a13a8c774b40a1dc'
         ret = {
             "status": 0,
-            "msg": original_flag,
+            "msg": new_flag,
         }
         return jsonify(ret)
     except:
