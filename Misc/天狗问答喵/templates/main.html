@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>天狗问答喵～</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="sdk.css" />
+    <link rel="stylesheet" href="helper.css" />
+    <link rel="stylesheet" href="iconfont.css" />
+    <!-- 这是默认主题所需的，如果是其他主题则不需要 -->
+    <!-- 从 1.1.0 开始 sdk.css 将不支持 IE 11，如果要支持 IE11 请引用这个 css，并把前面那个删了 -->
+    <!-- <link rel="stylesheet" href="sdk-ie11.css" /> -->
+    <!-- 不过 amis 开发团队几乎没测试过 IE 11 下的效果，所以可能有细节功能用不了，如果发现请报 issue -->
+    <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="app-wrapper"></div>
+    <script src="sdk.js"></script>
+    <script type="text/javascript">
+        (function () {
+            let amis = amisRequire('amis/embed');
+            // 通过替换下面这个配置来生成不同页面
+            let amisJSON = {
+                "type": "page",
+                "title": "天狗问答喵～",
+                "body": [
+                    {
+                        "type": "flex",
+                        "className": "p-1",
+                        "items": [
+                            {
+                                "type": "container",
+                                "body": [
+                                    {
+                                        "type": "form",
+                                        "title": "全部答对有 Flag ～",
+                                        "body": [
+                                            {
+                                                "label": "Q1：第一届 tongjictf 的年份（一个整数）",
+                                                "type": "input-text",
+                                                "name": "q1",
+                                                "id": "u:018ea18a1844"
+                                            },
+                                            {
+                                                "type": "input-text",
+                                                "label": "Q2：与同济大学第三届“TongjiCTF”网络安全竞赛的特等奖得主合影的老师是谁？（一些汉字）",
+                                                "name": "q2",
+                                                "id": "u:417207ee23ad"
+                                            },
+                                            {
+                                                "type": "input-text",
+                                                "label": "Q3：同济大学教学管理信息系统总中标金额是？（万元人民币，保留两位小数）",
+                                                "name": "q3",
+                                                "id": "u:a5742c0eda7c"
+                                            },
+                                            {
+                                                "type": "input-text",
+                                                "label": "Q4：第十四届全国大学生信息安全竞赛创新实践能力赛华东南赛区我校获得的最好排名是？（一个整数）",
+                                                "name": "q4",
+                                                "id": "u:ade390c5efd3"
+                                            },
+                                            {
+                                                "type": "input-text",
+                                                "label": "Q5：我校的 IBM 大型机上运行的操作系统版本是？（保留一位小数）",
+                                                "name": "q5",
+                                                "id": "u:dae6ff078597"
+                                            },
+                                            {
+                                                "type": "input-text",
+                                                "label": "Q6：2023年3月19日 周日 15:30 由 「IBM 俱乐部」和「TOSA-开源技术学生社团」在嘉定校区济事楼-434 进行的讲座使用的资料的压缩包的md5值是？（小写字母和数字的字符串）",
+                                                "name": "q6",
+                                                "id": "u:0a7918b4d57a"
+                                            }
+                                        ],
+                                        "id": "u:1e74693b6ef2",
+                                        "submitText": "汪！",
+                                        "api": {
+                                            "url": "/answer",
+                                            "method": "post",
+                                            "dataType": "form"
+                                        },
+                                        "onEvent": {
+                                        }
+                                    }
+                                ],
+                                "size": "xs",
+                                "style": {
+                                    "position": "static",
+                                    "display": "block",
+                                    "flex": "1 1 auto",
+                                    "flexGrow": 1,
+                                    "flexBasis": "auto"
+                                },
+                                "wrapperBody": false,
+                                "isFixedHeight": false,
+                                "isFixedWidth": false,
+                                "id": "u:ec7edbde5a4c"
+                            }
+                        ],
+                        "style": {
+                            "position": "relative"
+                        },
+                        "id": "u:74de934b70f6"
+                    }
+                ],
+                "id": "u:7cc35a352272",
+                "pullRefresh": {
+                    "disabled": true
+                },
+                "subTitle": "喵呜～汪",
+                "asideResizor": false,
+                "style": {
+                    "boxShadow": " 0px 0px 0px 0px transparent"
+                },
+                "regions": [
+                    "body",
+                    "header"
+                ]
+            };
+            let amisScoped = amis.embed('#root', amisJSON);
+        })();
+    </script>
+</body>
+
+</html>
