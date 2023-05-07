@@ -37,7 +37,7 @@ def answer():
         ans_hash = calc_sha256(s)
         print(s)
         print(ans_hash)
-        assert ans_hash == 'cdad6de583f89e95f76cd0cd04c25a56cbe785d98359cf98da0993f791f56eff'
+        assert ans_hash == 'c3075d05abdd8d82e2d36cf6179f0dcdc08ccb8497fdc745ab975e0e63ce384c'
         ret = {
             "status": 0,
             "msg": new_flag,
