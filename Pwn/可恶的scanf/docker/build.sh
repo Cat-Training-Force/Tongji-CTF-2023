@@ -1,0 +1,1 @@
+docker build . -t whistleh/ctf_2023:pwn-scanf
